@@ -1,14 +1,12 @@
 package com.mongo.crud.service;
 
 import com.mongo.crud.DTO.UpdateDTO;
-import com.mongo.crud.DTO.UserDTO;
 import com.mongo.crud.documents.Address;
 import com.mongo.crud.documents.User;
 import com.mongo.crud.repository.UserRepository;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
-import java.util.Collections;
+
 import java.util.List;
 
 @Service
@@ -20,18 +18,18 @@ public class UserService {
     }
 
 
-    public User addUser(UserDTO userDTO){
+    public User addUser(User userDTO){
 
-        List<Address> addresses = new ArrayList<>();
-        addresses.add(Address.builder().street(userDTO.getAddress().get(0).getStreet()).zipcode(userDTO.getAddress().get(0).getZipcode()).build());
+        //Address adress = Address.builder().street(userDTO.getAddress().getStreet()).zipcode(userDTO.getAddress().getZipcode()).build();
 
         //problema para unir com address
 
         User user = User.builder().login(userDTO.getLogin())
                 .password(userDTO.getPassword())
+
                 .build();
 
-        return userRepository.save(user);
+        return userRepository.save(userDTO);
     }
 
 
