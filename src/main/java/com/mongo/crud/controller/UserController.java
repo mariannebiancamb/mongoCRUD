@@ -1,7 +1,6 @@
 package com.mongo.crud.controller;
 
 import com.mongo.crud.DTO.UpdateDTO;
-import com.mongo.crud.DTO.UserDTO;
 import com.mongo.crud.documents.User;
 import com.mongo.crud.service.UserService;
 import org.springframework.web.bind.annotation.*;
@@ -19,8 +18,8 @@ public class UserController {
 
     //Create
     @PostMapping
-    public User addUser(@RequestBody User userDTO){
-        return userService.addUser(userDTO);
+    public User addUser(@RequestBody User user){
+        return userService.addUser(user);
     }
 
     //Retrieve

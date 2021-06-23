@@ -7,6 +7,7 @@ import lombok.NoArgsConstructor;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.DBRef;
 import org.springframework.data.mongodb.core.mapping.Document;
+import org.springframework.data.mongodb.core.mapping.Field;
 
 
 @Data
@@ -20,7 +21,8 @@ public class User {
     private String login;
     private String password;
     //referencia nao funciona
-    //@DBRef
-    //private Address address;
+    @DBRef
+    @Field(name = "addresses")
+    private Address address;
 
 }
