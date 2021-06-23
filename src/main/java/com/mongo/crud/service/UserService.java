@@ -25,10 +25,10 @@ public class UserService {
         List<Address> addresses = new ArrayList<>();
         addresses.add(Address.builder().street(userDTO.getAddress().get(0).getStreet()).zipcode(userDTO.getAddress().get(0).getZipcode()).build());
 
+        //problema para unir com address
 
         User user = User.builder().login(userDTO.getLogin())
                 .password(userDTO.getPassword())
-                .address(addresses)
                 .build();
 
         return userRepository.save(user);
