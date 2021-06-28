@@ -24,18 +24,15 @@ public class UserService {
         return userRepository.save(user);
     }
 
-
     public List<User> findAll(){
         return userRepository.findAll();
     }
-
 
     public User updatePassword(UpdateDTO updateDTO){
         User user = userRepository.findUserDTOByLogin(updateDTO.getLogin());
         user.setPassword(updateDTO.getPassword());
         return userRepository.save(user);
     }
-
 
     public User deleteUserBylogin(String login){
         User user = userRepository.findUserDTOByLogin(login);
